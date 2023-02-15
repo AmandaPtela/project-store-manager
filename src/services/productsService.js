@@ -1,10 +1,9 @@
-const { connection } = require("./connection");
+const productsModel = require('../models/productsModel');
 
-const getAllModel = async () => {
-  const query = 'SELECT * FROM StoreManager.products';
-  const result = await connection.execute(query);
-  console.log(result);
-  return result;
-}
+const getAllService = async () => {
+  const products = await productsModel.getAllModel();
+  console.log(products);
+  return products;
+};
 
-module.exports = { getAllModel }
+module.exports = { getAllService };
