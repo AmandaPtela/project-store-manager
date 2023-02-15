@@ -1,8 +1,8 @@
 // Iniciandoconst productsService = require('../services/productsService');
 
 const getAll = async (_request, response) => {
-/*   const products = await productsService.getAllService();
-  response.status(200).json(products) */
+  const products = await productsService.getAllService();
+  response.status(200).json(products)
   console.log('products');
 }
 
