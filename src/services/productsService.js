@@ -1,3 +1,4 @@
+// const Joi = require('joi');
 const productsModel = require('../models/productsModel');
 
 const getAllService = async () => {
@@ -20,7 +21,23 @@ const getByIdService = async (id) => {
 
 const addProductService = async (product) => {
   const products = await productsModel.addProductModel(product);
+  console.log(products);
   return products;
 };
 
+/* validar vários
+
+const nameSchema =  Joi.object({
+  name: Joi.string().min(5).required().label('name'),
+}).messages({
+  'any.required': '{{#label}} is required',
+  'any.less': '{{#label}} must be greater than 5'
+})
+
+const arraySchema = Joi.array().items(nameSchema);
+const { error } = arraySchema.validate(product);
+console.log(error.message);
+
+if(error) throw {status: 400, message: error.message}
+*/
 module.exports = { getAllService, getByIdService, addProductService };
