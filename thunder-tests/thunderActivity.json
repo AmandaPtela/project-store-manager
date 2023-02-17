@@ -4,16 +4,16 @@
     "colId": "history",
     "containerId": "",
     "name": "localhost:3000/products",
-    "url": "localhost:3000/products",
+    "url": "localhost:3000/sales",
     "method": "POST",
     "sortNum": 0,
     "created": "2023-02-16T21:16:21.138Z",
-    "modified": "2023-02-16T23:05:45.664Z",
+    "modified": "2023-02-17T20:36:12.932Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"aman4\"\n}",
+      "raw": "[{\n  \"productId\": 1,\n  \"quantity\": 0\n},\n{\n  \"productId\": 3,\n  \"quantity\": 2\n}]",
       "form": []
     },
     "tests": []
