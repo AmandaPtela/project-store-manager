@@ -7,4 +7,22 @@ const validateName = (request, response, next) => {
   }
   next();
 };
-module.exports = { validateName };
+
+const validateSale = async (error) => {
+  // console.log('MIDLEWAAAAAAAAARE', error);
+  const tipo = await error.message;
+  const NF = { status: 404, messagem: 'Product not found' };
+  const Min = { status: 422, messagem: error.message };
+  const Req = { status: 400, messagem: error.message };
+  if (tipo.includes('required')) {
+    return Req;
+  }
+  if (tipo.includes('greater')) {
+    return Min;
+  }
+  if (tipo.includes('less')) {
+    return NF;
+  }
+  return 'nada';
+};
+module.exports = { validateName, validateSale };

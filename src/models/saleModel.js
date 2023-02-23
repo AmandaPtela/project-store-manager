@@ -1,16 +1,16 @@
 const { connection } = require('./connection');
 
 const addSaleModel = async () => {
-  const query = `INSERT into StoreManager.sales (date) VALUES(NOW());`;
+  const query = 'INSERT into StoreManager.sales (date) VALUES(NOW());';
   const [result] = await connection.execute(query);
   return result;
 };
 
-const getSalesModel = async  () => {
-    const query = `SELECT id FROM StoreManager.sales;`;
+const getSalesModel = async () => {
+  const query = 'SELECT id FROM StoreManager.sales;';
   const [result] = await connection.execute(query);
   return result;
-}
+};
 
 const addCompleteSaleModel = async (id, sale) => {
   const resultado = await Promise.all(sale.map(async (product) => {
@@ -20,6 +20,6 @@ const addCompleteSaleModel = async (id, sale) => {
     return result;
   }));
   return resultado;
-}
+};
 
 module.exports = { addSaleModel, addCompleteSaleModel, getSalesModel };

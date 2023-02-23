@@ -1,14 +1,17 @@
+const { validateSale } = require('../middlewares/validation');
 const salesService = require('../services/saleService');
 
-const addSale = async (request, response) => {
-  // const allSales = await salesService.addSaleService();
+const addSale = async (request, response, next) => {
   const newSale = request.body;
   try {
-    await salesService.addSaleRegistry()
     const result = await salesService.addSaleService(newSale);
     response.status(201).json(result);
   } catch (error) {
-    response.status(error.status).json({ message: error.message });
+    const resultValidation = await validateSale(error);
+    next();
+    console.log(resultValidation);
+    const { status, messagem } = resultValidation;
+    return response.status(status).json({ message: messagem });
   }
 };
 
