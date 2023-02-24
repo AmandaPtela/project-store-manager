@@ -4,8 +4,8 @@ const sinon = require('sinon');
 const { expect } = require('chai');
 const productsModel = require('../../../src/models/productsModel');
 const productsMock = require('../mocks/productsMock');
-const getByIdMock = require('../mocks/getByIdMock');
-const newProductMock = require('../mocks/newProductMock');
+// const getByIdMock = require('../mocks/getByIdMock');
+// const newProductMock = require('../mocks/newProductMock');
 // const productsService = require('../../src/services/productsService');
 
 chai.use(sinonChai);
