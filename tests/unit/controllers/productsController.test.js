@@ -19,9 +19,7 @@ describe('PRODUCTS - Testes Camada Controller', () => {
     response.json = sinon.stub().resolves();
   });
   afterEach(() => sinon.restore());
-
   it('Função getAll deve retornar um status 200 e todos os produtos', async () => {
-    
     sinon.stub(productsService, 'getAllService').resolves(productsMock);
 
     await productsController.getAll(request, response);

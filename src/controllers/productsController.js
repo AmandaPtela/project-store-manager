@@ -19,7 +19,6 @@ const addProduct = async (request, response) => {
   const newProduct = request.body;
   await productsService.addProductService(newProduct);
   response.status(201).json({ id: allProducts.length + 1, name: newProduct.name });
-
 };
 
 module.exports = {
