@@ -14,13 +14,12 @@ const getById = async (request, response) => {
   if (productsById) { return response.status(200).json(productsById); }
 };
 
-const addProduct = async (request, response, next) => {
+const addProduct = async (request, response) => {
   const allProducts = await productsService.getAllService();
   const newProduct = request.body;
-  try {
-    await productsService.addProductService(newProduct);
-    response.status(201).json({ id: allProducts.length + 1, name: newProduct.name });
-  } catch (error) { next(error); }
+  await productsService.addProductService(newProduct);
+  response.status(201).json({ id: allProducts.length + 1, name: newProduct.name });
+
 };
 
 module.exports = {

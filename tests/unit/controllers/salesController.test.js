@@ -11,20 +11,23 @@ const newsaleMock = require('../mocks/newsaleMock');
 
 chai.use(sinonChai);
 
-describe('Testes Camada Controller de SALES', () => {
+describe(' SALES - Testes Camada Controller de SALES', () => {
+  const response = {};
+  const request = {};
+
+  beforeEach(() => {
+    response.status = sinon.stub().returns(response);
+    response.json = sinon.stub().resolves();
+  });
+
+  afterEach(() => sinon.restore());
+
   it('Função addSale deve retornar uma nova venda', async () => {
-    sinon.stub(salesController, 'addSale').resolves(newsaleMock);
-    sinon.stub(salesService, 'addSaleService').resolves(newsaleMock);
 
-    const func = await salesController.addSale([{
-      "productId": 1,
-      "quantity": 1
-    },
-    {
-      "productId": 2,
-      "quantity": 5
-    }]);
+    await sinon.stub(salesService, 'addSaleService').resolves(newsaleMock);
 
-    expect(func).to.be.equal(newsaleMock);
+    await salesController.addSale(request, response)
+    expect(response.status).to.be.calledWith(201);
+    expect(response.json).to.have.been.calledWithExactly(newsaleMock);
   });
 });

@@ -4,31 +4,32 @@ const sinon = require('sinon');
 const { expect } = require('chai');
 const productsModel = require('../../../src/models/productsModel');
 const productsMock = require('../mocks/productsMock');
-// const getByIdMock = require('../mocks/getByIdMock');
-// const newProductMock = require('../mocks/newProductMock');
-// const productsService = require('../../src/services/productsService');
+const getByIdMock = require('../mocks/getByIdMock');
+const newProductMock = require('../mocks/newProductMock');
+const productsService = require('../../../src/services/productsService');
 
 chai.use(sinonChai);
 
-describe('Testes Camada Service', () => {
+describe('PRODUCTS - Testes Camada Service', () => {
+  afterEach(() => sinon.restore());
   it('Função getAllService deve retornar todos os produtos', async () => {
     sinon.stub(productsModel, 'getAllModel').resolves(productsMock);
-    const func = await productsModel.getAllModel();
+    const func = await productsService.getAllService();
 
     expect(func).to.be.equal(productsMock);
   });
-/*
-  it('Função getByIdService deve retornar o produto pedido', async () => {
-    sinon.stub(productsService, 'getByIdService').resolves(getByIdMock);
-    const func = await productsService.getByIdService();
+
+  it('Função getByIdService deve retornar o produtos pedido', async () => {
+    sinon.stub(productsModel, 'getByIdModel').resolves(getByIdMock);
+    const func = await productsService.getByIdService(1);
 
     expect(func).to.be.equal(getByIdMock);
   });
 
-  it('Função addProduct deve retornar um objeto com o corpo da requisição', async () => {
-    sinon.stub(productsService, 'addProductService').resolves(newProductMock);
+  it('Função addProductService deve retornar um objeto com o novo produto', async () => {
+    sinon.stub(productsModel, 'addProductModel').resolves(newProductMock);
     const func = await productsService.addProductService({name: "Product X"});
 
-    expect(typeof func).to.be.equal('object');
-  });*/
+    expect(func).to.be.equal(newProductMock);
+  });
 })

@@ -1,4 +1,3 @@
-// const Joi = require('joi');
 const productsModel = require('../models/productsModel');
 
 const getAllService = async () => {
@@ -21,7 +20,7 @@ const getByIdService = async (id) => {
 
 const addProductService = async (product) => {
   const products = await productsModel.addProductModel(product);
-  console.log(products);
+  // console.log(products);
   return products;
 };
 
