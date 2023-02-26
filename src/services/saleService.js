@@ -28,4 +28,22 @@ const addSaleService = async (sale) => {
   return { id: allSales[allSales.length - 1].id, itemsSold: sale };
 };
 
-module.exports = { addSaleService, addSaleRegistry };
+const getAllSalesService = async () => {
+  const allSales = await salesModel.getAllSalesModel();
+  return allSales;
+};
+
+const getSaleByIdService = async (id) => {
+  const saleById = await salesModel.getSaleByIdModel(id);
+  console.log(saleById);
+
+  if (saleById.length === 0) return ({ status: 404, messagem: 'Sale not found' });
+  return (saleById);
+};
+
+module.exports = {
+  addSaleService,
+  addSaleRegistry,
+  getSaleByIdService,
+  getAllSalesService,
+};

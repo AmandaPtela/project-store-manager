@@ -20,7 +20,7 @@ const validateSale = async (error) => {
   if (tipo.includes('greater')) {
     return Min;
   }
-  if (tipo.includes('less')) {
+  if (tipo.includes('less than or equal')) {
     return NF;
   }
   return 'nada';

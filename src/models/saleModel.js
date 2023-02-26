@@ -22,4 +22,29 @@ const addCompleteSaleModel = async (id, sale) => {
   return resultado;
 };
 
-module.exports = { addSaleModel, addCompleteSaleModel, getSalesModel };
+const getAllSalesModel = async () => {
+  const query = `SELECT salesPRod.sale_id as saleId, sales.date,
+    salesPRod.product_id as productId, salesPRod.quantity 
+    FROM StoreManager.sales AS sales
+    INNER JOIN StoreManager.sales_products AS salesPRod ON sales.id = salesPRod.sale_id
+    ORDER BY sale_id, product_id; `;
+  const [result] = await connection.execute(query);
+  return result;
+};
+
+const getSaleByIdModel = async (id) => {
+  const query = `SELECT sales.date, salesPRod.product_id as productId, salesPRod.quantity 
+    FROM StoreManager.sales AS sales
+    INNER JOIN StoreManager.sales_products AS salesPRod ON sales.id = salesPRod.sale_id
+    WHERE sale_id = ${id}`;
+  const [result] = await connection.execute(query);
+  return result;
+};
+
+module.exports = {
+  addSaleModel,
+  addCompleteSaleModel,
+  getSalesModel,
+  getSaleByIdModel,
+  getAllSalesModel,
+};
