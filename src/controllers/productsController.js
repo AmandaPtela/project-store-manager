@@ -10,8 +10,8 @@ const getAll = async (_request, response) => {
 const getById = async (request, response) => {
   const { id } = request.params;
   const productsById = await productsService.getByIdService(id);
-  if (!productsById) { return response.status(404).json({ message: 'Product not found' }); }
   if (productsById) { return response.status(200).json(productsById); }
+  if (!productsById) { return response.status(404).json({ message: 'Product not found' }); }
 };
 
 const addProduct = async (request, response) => {

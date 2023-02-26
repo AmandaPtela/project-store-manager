@@ -10,7 +10,6 @@ const getAllModel = async () => {
 const getByIdModel = async (id) => {
   const query = `SELECT * FROM StoreManager.products WHERE id = ${id}`;
   const [[result]] = await connection.execute(query);
-  console.log('MODEL ', result);
   return result;
 };
 

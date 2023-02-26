@@ -27,9 +27,12 @@ describe(' SALES - Testes Camada Controller de SALES', () => {
 
     await sinon.stub(salesService, 'addSaleService').resolves(newsaleMock);
 
-    await salesController.addSale(request, response)
-    expect(response.status).to.be.calledWith(201);
-    expect(response.json).to.have.been.calledWithExactly(newsaleMock);
+    const add = await salesController.addSale(request, response)
+    if (typeof add === 'object') {
+      expect(response.status).not.to.be.calledWith(201);
+    }
+      expect(response.status).to.be.calledWith(201);
+      expect(response.json).to.have.been.calledWithExactly(newsaleMock);
   });
 
   it('Função getAllSales deve retornar todas as vendas', async () => {
@@ -41,6 +44,15 @@ describe(' SALES - Testes Camada Controller de SALES', () => {
   });
 
   it('Função getSaleByIdService deve retornar todas as vendas', async () => {
+    await sinon.stub(salesService, 'getSaleByIdService').resolves(getSaleByIdMock);
+
+    const req = { params: { id: 1 } };
+    await salesController.getSaleById(req, response)
+    expect(response.status).to.be.calledWith(200);
+    expect(response.json).to.have.been.calledWithExactly(getSaleByIdMock);
+  });
+
+    it('Função getSaleByIdService deve retornar erro', async () => {
     await sinon.stub(salesService, 'getSaleByIdService').resolves(getSaleByIdMock);
 
     const req = { params: { id: 1 } };

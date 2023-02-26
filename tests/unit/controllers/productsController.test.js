@@ -16,7 +16,7 @@ describe('PRODUCTS - Testes Camada Controller', () => {
 
   beforeEach(() => {
     response.status = sinon.stub().returns(response);
-    response.json = sinon.stub().resolves();
+    response.json = sinon.stub().returns();
   });
   afterEach(() => sinon.restore());
   it('Função getAll deve retornar um status 200 e todos os produtos', async () => {
@@ -28,11 +28,14 @@ describe('PRODUCTS - Testes Camada Controller', () => {
     expect(response.json).to.have.been.calledWithExactly(productsMock);
   });
 
-  it('Função getById deve retornar o produto específico', async () => {
-    sinon.stub(productsController, 'getById').resolves(getByIdMock);
-    const func = await productsController.getById(1);
+  it('Função getById deve retornar um status 200 e o produto específico', async () => {
+    const req = { params: { id: 1 } };
+    sinon.stub(productsService, 'getByIdService').resolves(getByIdMock);
+    await productsController.getById(req, response);
 
-    expect(func).to.be.equal(getByIdMock);
+    expect(response.status).to.have.been.calledWith(200);
+    expect(response.json).to.have.been.calledWith(getByIdMock);
+
   });
 
   it('Função addProduct deve retornar um status 201 e o novo produto', async () => {
