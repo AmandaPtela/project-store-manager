@@ -26,7 +26,6 @@ const getSaleById = async (request, response) => {
   if (status) {
     return response.status(status).json({ message: messagem });
   }
-  console.log('GETBYID RESULT', result);
   return response.status(200).json(result);
 };
 
