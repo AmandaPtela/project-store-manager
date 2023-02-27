@@ -19,6 +19,8 @@ app.post('/products', validation.validateName, productsController.addProduct);
 
 app.put('/products/:id', validation.validateName, productsController.updateProduct);
 
+app.delete('/products/:id', productsController.deleteProduct);
+
 app.post('/sales', salesController.addSale);
 
 app.get('/sales', salesController.getAllSales);

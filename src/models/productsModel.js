@@ -34,10 +34,17 @@ const updateProductModel = async (id, product) => {
   return result;
 };
 
+const deleteProductModel = async (id) => {
+  const deleteQuery = `DELETE FROM StoreManager.products WHERE id = ${id};`;
+  const [{ affectedRows }] = await connection.execute(deleteQuery);
+  return affectedRows;
+};
+
 module.exports = {
   getAllModel,
   getByIdModel,
   addProductModel,
   getUpdatedModel,
   updateProductModel,
+  deleteProductModel,
 };

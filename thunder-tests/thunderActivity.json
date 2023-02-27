@@ -93,5 +93,24 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "97e9a619-ad81-4c74-bd27-320b65618625",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/products/1",
+    "url": "localhost:3000/products/1",
+    "method": "DELETE",
+    "sortNum": 0,
+    "created": "2023-02-27T18:10:48.970Z",
+    "modified": "2023-02-27T18:10:48.970Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"inhaas\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]

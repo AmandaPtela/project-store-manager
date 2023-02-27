@@ -28,12 +28,25 @@ const updateProductService = async (id, product) => {
   const allProducts = await getAllService();
   const schemaId = id > allProducts.length;
 
-  console.log(schemaId, allProducts.length);
-
   if (schemaId) return ({ status: 404, messagem: 'Product not found' });
   await productsModel.updateProductModel(id, product);
   const newProduct = await productsModel.getUpdatedModel(id);
   return { status: 200, messagem: newProduct };
 };
 
-module.exports = { getAllService, getByIdService, addProductService, updateProductService };
+const deleteProductService = async (id) => {
+  const allProducts = await getAllService();
+  const schemaId = id > allProducts.length;
+
+  if (schemaId) return ({ status: 404, messagem: 'Product not found' });
+  await productsModel.deleteProductModel(id);
+  return ({ status: 204 });
+};
+
+module.exports = {
+  getAllService,
+  getByIdService,
+  addProductService,
+  updateProductService,
+  deleteProductService,
+};
