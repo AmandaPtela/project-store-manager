@@ -21,4 +21,23 @@ const addProductModel = async (product) => {
   return result;
 };
 
-module.exports = { getAllModel, getByIdModel, addProductModel };
+const getUpdatedModel = async (id) => {
+  const selectQuery = `SELECT * FROM StoreManager.products WHERE id = ${id};`;
+  const [[result]] = await connection.execute(selectQuery);
+  return result;
+};
+
+const updateProductModel = async (id, product) => {
+  const { name } = product;
+  const query = `UPDATE StoreManager.products SET name = "${name}" WHERE id = ${id} `;
+  const [result] = await connection.execute(query);
+  return result;
+};
+
+module.exports = {
+  getAllModel,
+  getByIdModel,
+  addProductModel,
+  getUpdatedModel,
+  updateProductModel,
+};

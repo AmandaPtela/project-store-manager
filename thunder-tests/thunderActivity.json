@@ -19,25 +19,6 @@
     "tests": []
   },
   {
-    "_id": "7535e2ed-eaa9-4e35-bc44-86757872e7b5",
-    "colId": "history",
-    "containerId": "",
-    "name": "localhost:3000/products",
-    "url": "localhost:3000/products",
-    "method": "GET",
-    "sortNum": 0,
-    "created": "2023-02-16T21:42:22.356Z",
-    "modified": "2023-02-16T21:42:22.356Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "json",
-      "raw": "{\r\n  \"name\": \"ProdutoX\"\r\n}",
-      "form": []
-    },
-    "tests": []
-  },
-  {
     "_id": "94063fd9-0c48-49c7-bc55-3fc8efd2edad",
     "colId": "history",
     "containerId": "",
@@ -57,59 +38,60 @@
     "tests": []
   },
   {
-    "_id": "f3ca5f38-2733-4667-8e26-89cc10b0dc00",
+    "_id": "acf73036-29c4-40c0-8faa-2a5038b6bc27",
     "colId": "history",
     "containerId": "",
-    "name": "localhost:3000/sales",
-    "url": "localhost:3000/sales",
-    "method": "GET",
+    "name": "localhost:3000/products/1",
+    "url": "localhost:3000/products/1",
+    "method": "PUT",
     "sortNum": 0,
-    "created": "2023-02-26T17:27:17.474Z",
-    "modified": "2023-02-26T17:27:17.474Z",
+    "created": "2023-02-27T16:47:36.371Z",
+    "modified": "2023-02-27T17:41:29.339Z",
     "headers": [],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"inhaas\"\n}",
+      "form": []
+    },
     "tests": []
   },
   {
-    "_id": "b6c22c25-d344-42c1-aa35-75c254c1f988",
+    "_id": "1764ddce-717c-42a3-aca6-d09610ae6205",
     "colId": "history",
     "containerId": "",
-    "name": "localhost:3000/sales/2",
-    "url": "localhost:3000/sales/2",
-    "method": "GET",
+    "name": "localhost:3000/products/5",
+    "url": "localhost:3000/products/5",
+    "method": "PUT",
     "sortNum": 0,
-    "created": "2023-02-26T18:05:17.443Z",
-    "modified": "2023-02-26T18:05:17.443Z",
+    "created": "2023-02-27T17:09:38.932Z",
+    "modified": "2023-02-27T17:41:41.724Z",
     "headers": [],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"inhaas\"\n}",
+      "form": []
+    },
     "tests": []
   },
   {
-    "_id": "75056aa2-706b-4368-ab4d-b846feee5f9c",
+    "_id": "366f4e73-3810-4312-875e-57d1ca40a196",
     "colId": "history",
     "containerId": "",
-    "name": "localhost:3000/sales/4",
-    "url": "localhost:3000/sales/4",
-    "method": "GET",
+    "name": "localhost:3000/products/3",
+    "url": "localhost:3000/products/3",
+    "method": "PUT",
     "sortNum": 0,
-    "created": "2023-02-26T18:14:43.419Z",
-    "modified": "2023-02-26T18:14:43.419Z",
+    "created": "2023-02-27T17:43:01.292Z",
+    "modified": "2023-02-27T17:43:01.292Z",
     "headers": [],
     "params": [],
-    "tests": []
-  },
-  {
-    "_id": "680b4ab9-3142-4dc4-8ae6-8986b23e4fd2",
-    "colId": "history",
-    "containerId": "",
-    "name": "localhost:3000/sales/1",
-    "url": "localhost:3000/sales/1",
-    "method": "GET",
-    "sortNum": 0,
-    "created": "2023-02-26T18:29:16.777Z",
-    "modified": "2023-02-26T18:29:16.777Z",
-    "headers": [],
-    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"inhaas\"\n}",
+      "form": []
+    },
     "tests": []
   }
 ]
