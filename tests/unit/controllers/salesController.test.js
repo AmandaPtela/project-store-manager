@@ -4,9 +4,9 @@ const sinon = require('sinon');
 const { expect } = require('chai');
 const salesController = require('../../../src/controllers/salesController');
 const salesService = require('../../../src/services/saleService');
-const salesMock = require('../mocks/salesMock');
 const getSaleByIdMock = require('../mocks/getSaleByIdMock');
-const newsaleMock = require('../mocks/newsaleMock');
+const salesMock = require('../mocks/salesMock');
+const newsaleMock = require('../mocks/newSaleMock');
 // const productsService = require('../../src/services/productsService');
 
 
