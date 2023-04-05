@@ -13,7 +13,7 @@ Foi desenvolvido utilizando _Docker, NodeJs, Express_ e Arquitetura _MSC_.
   - Instale as dependências:
     - `npm install`
   - Inicialize o projeto:
-    - `npm start` (uma nova página deve abrir no seu navegador com o projeto)
+    - `npm run dev` (uma nova página deve abrir no seu navegador com o projeto)
   
   <summary><strong>Rodando o projeto no Docker‼️ </strong></summary><br />
   
@@ -30,4 +30,4 @@ Foi desenvolvido utilizando _Docker, NodeJs, Express_ e Arquitetura _MSC_.
   5. Inicialize o projeto:
    - `npm run dev`
   
-*A pasta _thunder-tests_, e arquivos _docker-compose_, _migration e seed_ é de autoria da **Trybe**.*
+*A pasta _thunder-tests_, e arquivos _docker-compose_, _migration e seed_ são de autoria da **Trybe**.*
